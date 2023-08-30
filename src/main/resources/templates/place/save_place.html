@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>place</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <form
+            th:method="post"
+            th:action="@{/place/save_place}"
+            th:object="${place}">
+        <div class="form-group">
+            <label for="1" style="color: aliceblue"><strong>name</strong></label>
+            <input th:field="${place.x}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="x">
+        </div>
+        <div class="form-group">
+            <label for="2" style="color: aliceblue"><strong>createDate</strong></label>
+            <input th:field="${place.y}" type="text" class="form-control" id="2" placeholder="y">
+        </div>
+        <div class="form-group">
+            <label for="2" style="color: aliceblue"><strong>country</strong></label>
+            <input th:field="${place.price}" type="text" class="form-control" id="3" placeholder="price">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

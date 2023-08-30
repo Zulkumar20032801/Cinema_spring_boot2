@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>session</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<table  class="table " style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px" >
+    <thead  style="color: black" class="thead-dark">
+    <tr>
+        <th scope="col"><b >ID</b></th>
+        <th scope="col"><b>NAME</b></th>
+        <th scope="col"><b>START</b></th>
+        <th scope="col"><b>FINISH</b></th>
+
+        <th>
+            <a th:href="@{/session/save}">
+                <button type="button" class="btn btn-secondary">add session</button>
+
+            </a>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sessions:${all_sessions}">
+        <td th:text="${sessions.id}"></td>
+        <td th:text="${sessions.name}"></td>
+        <td th:text="${sessions.start}"></td>
+        <td th:text="${sessions.finish}"></td>
+
+        <td>
+            <a th:href="@{/session/update/{id}(id=${sessions.id})}">
+                <button style="color: black" type="button" class="btn btn-info">update</button>
+            </a>
+        </td>
+
+        <td>
+            <a th:href="@{/session/delete/{id}(id=${sessions.id})}">
+                <button  style="color: black " type="button" class="btn btn-info">delete</button>
+            </a>
+        </td><td>
+        <a th:href="@{/session/rooms/{id}(id=${sessions.id})}">
+            <button style="color:  black" type="button" class="btn btn-info">rooms</button>
+        </a>
+    </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
